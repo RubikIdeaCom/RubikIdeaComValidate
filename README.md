@@ -37,6 +37,7 @@ $ricValidateObject = new Validate($dbConnection);
 
 # Customizing messages
 Although RubikIdeaComValidate has default messages it supports custom messages as well. for example ({0} will replace by numeric value of that option):
+```
 $messages = array(
             'name' => array(
                 'required' => 'Name is required.',
@@ -66,8 +67,10 @@ if(end($data) !== 'Error') {
 } else {
   // Failure
 }
+```
 
 # How to use
+```
 <?php
         require_once './Validate.php';
         use RubikIdeaCom\Validate as Validate;
@@ -141,3 +144,4 @@ if(end($data) !== 'Error') {
             // Failure
         }
     ?>
+```
