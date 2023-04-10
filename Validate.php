@@ -1,4 +1,13 @@
 <?php
+/*
+	@source https://github.com/RubikIdeaCom/RubikIdeaComValidate Simple Calculator by PHP using NO Session or Cookie or DB
+	@version 1.0.0
+	@author RubikIdea.com (Ali Seyedabadi) <info@rubikidea.com>
+	@link https://www.linkedin.com/in/ali-seyedabadi/
+	@link http://rubikidea.com/
+	@copyright 2009 rubikidea.com
+	@license MIT
+*/
 namespace RubikIdeaCom {
     class Validate {
         
@@ -65,10 +74,7 @@ namespace RubikIdeaCom {
                     case 'str':
                     case 'string':
                         if($this->isArrayField !== true) {
-                            $value = strval($value);
-                            $value = nl2br($value);
-                            $value = strip_tags($value);
-                            $value = is_null($this->dbConnection) ? $value : $this->dbConnection->real_escape_string($value);
+                            $value = is_null($this->dbConnection) ? strip_tags(nl2br(strval($value))) : $this->dbConnection->real_escape_string(strip_tags(nl2br(strval($value))));
                             $this->rawData[$this->fieldName] = addslashes($value);
                         } else {
                             $arrayLenght = count($value);
@@ -90,10 +96,7 @@ namespace RubikIdeaCom {
                     
                     case 'string-text':
                         if($this->isArrayField !== true) {
-                            $value = strval($value);
-                            $value = nl2br($value);
-                            $value = strip_tags($value);
-                            $this->rawData[$this->fieldName] = addslashes($value);
+                            $this->rawData[$this->fieldName] = addslashes(strip_tags(nl2br(strval($value))));
                         } else {
                             $arrayLenght = count($value);
                             for($i = 0; $i < $arrayLenght; $i++) {
@@ -125,9 +128,7 @@ namespace RubikIdeaCom {
                     
                     case 'html-text':
                         if($this->isArrayField !== true) {
-                            $value = strval($value);
-                            $value = addslashes($value);
-                            $this->rawData[$this->fieldName] = nl2br($value);
+                            $this->rawData[$this->fieldName] = nl2br(addslashes(strval($value)));
                         } else {
                             $arrayLenght = count($value);
                             for($i = 0; $i < $arrayLenght; $i++) {
@@ -142,8 +143,7 @@ namespace RubikIdeaCom {
                     
                     case 'html':
                         if($this->isArrayField !== true) {
-                            $value = strval($value);
-                            $this->rawData[$this->fieldName] = addslashes($value);
+                            $this->rawData[$this->fieldName] = addslashes(strval($value));
                         } else {
                             $arrayLenght = count($value);
                             for($i = 0; $i < $arrayLenght; $i++) {
@@ -157,9 +157,7 @@ namespace RubikIdeaCom {
                     
                     case 'script':
                         if($this->isArrayField !== true) {
-                            $value = strval($value);
-                            $value = htmlspecialchars($value);
-                            $this->rawData[$this->fieldName] = addslashes($value);
+                            $this->rawData[$this->fieldName] = addslashes(htmlspecialchars(strval($value)));
                         } else {
                             $arrayLenght = count($value);
                             for($i = 0; $i < $arrayLenght; $i++) {
