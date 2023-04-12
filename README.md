@@ -13,10 +13,11 @@ Sanitize following data types:
 - real|float|double: return a double value.
 
 Please note that you can pass a DB connection object to constructor and your data sanitizing on str|string option will use real_scape_string method.
-
+```
 use RubikIdeaCom\Validate as Validate;
 $ricValidateObject = new Validate($dbConnection);
-
+```
+            
 # Validation Features:
 - maxLength: Puts a maximum length to text entries.
 - minLength: Puts a minimum length to text entries.
