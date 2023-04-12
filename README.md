@@ -13,7 +13,7 @@ Sanitize following data types:
 - real|float|double: return a double value.
 
 Please note that you can pass a DB connection object to constructor and your data sanitizing on str|string option will use real_scape_string method.
-```
+```php
 use RubikIdeaCom\Validate as Validate;
 $ricValidateObject = new Validate($dbConnection);
 ```
@@ -38,7 +38,7 @@ $ricValidateObject = new Validate($dbConnection);
 
 # Customizing messages
 Although RubikIdeaComValidate has default messages it supports custom messages as well. for example ({0} will replace by numeric value of that option):
-```
+```php
 $messages = array(
             'name' => array(
                 'required' => 'Name is required.',
@@ -71,7 +71,7 @@ if(end($data) !== 'Error') {
 ```
 
 # How to use
-```
+```php
 <?php
         require_once './Validate.php';
         use RubikIdeaCom\Validate as Validate;
